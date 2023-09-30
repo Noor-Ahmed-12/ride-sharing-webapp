@@ -19,9 +19,6 @@ const rideList = document.getElementById('ride-list');
 const bookButton = document.getElementById('book-button');
 const bookingForm = document.getElementById('booking-form');
 const selectedRideSelect = document.getElementById('selected-ride');
-const priceRangeInput = document.getElementById('price-range');
-const priceOutput = document.getElementById('price-output');
-const filterForm = document.getElementById('filter-form');
 
 // Function to display rides in the UI
 function displayRides(ridesToDisplay) {
@@ -52,7 +49,7 @@ bookButton.addEventListener('click', () => {
     bookingForm.style.display = 'block';
 });
 
-// Event listener for submitting the booking form
+// Event listener for submitting the booking form (you can add your booking logic here)
 bookingForm.addEventListener('submit', (e) => {
     e.preventDefault();
     const name = document.getElementById('name').value;
@@ -64,44 +61,8 @@ bookingForm.addEventListener('submit', (e) => {
         return;
     }
 
-    // Find the selected ride
-    const selectedRide = rides.find((ride) => ride.id === parseInt(selectedRideId));
+    // You can add your booking logic here
 
-    if (selectedRide && selectedRide.seatsAvailable > 0) {
-        // Simulated booking confirmation
-        selectedRide.seatsAvailable--;
-        alert(`Booking confirmed for ${name} (${email}) on Ride ${selectedRide.id}.`);
-        bookingForm.style.display = 'none';
-        // Update the ride list with the new seat availability
-        displayRides(rides);
-    } else {
-        alert('Booking failed. No seats available for the selected ride.');
-    }
-});
-
-// Event listener for filtering rides based on price range
-filterForm.addEventListener('submit', (e) => {
-    e.preventDefault();
-
-    const filteredRides = rides.filter((ride) => ride.price <= priceRangeInput.value);
-
-    if (filteredRides.length === 0) {
-        rideList.innerHTML = '<p>No rides match your selected price range.</p>';
-    } else {
-        displayRides(filteredRides);
-    }
-});
-
-// Event listener to update the displayed price range value
-priceRangeInput.addEventListener('input', () => {
-    priceOutput.textContent = `$${priceRangeInput.value}`;
-
-    // Ensure the ride list is updated when the user adjusts the price range
-    const filteredRides = rides.filter((ride) => ride.price <= priceRangeInput.value);
-
-    if (filteredRides.length === 0) {
-        rideList.innerHTML = '<p>No rides match your selected price range.</p>';
-    } else {
-        displayRides(filteredRides);
-    }
+    // For now, simply hide the form
+    bookingForm.style.display = 'none';
 });
