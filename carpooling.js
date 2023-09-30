@@ -5,8 +5,16 @@ const rides = [
     { id: 1, driver: 'Alice', origin: 'City A', destination: 'City B', seatsAvailable: 3, price: 20 },
     { id: 2, driver: 'Bob', origin: 'City C', destination: 'City D', seatsAvailable: 1, price: 15 },
     { id: 3, driver: 'Carol', origin: 'City X', destination: 'City Y', seatsAvailable: 5, price: 30 },
+    { id: 4, driver: 'David', origin: 'City M', destination: 'City N', seatsAvailable: 2, price: 25 },
+    { id: 5, driver: 'Eve', origin: 'City P', destination: 'City Q', seatsAvailable: 4, price: 18 },
+    { id: 6, driver: 'Frank', origin: 'City G', destination: 'City H', seatsAvailable: 3, price: 22 },
+    { id: 7, driver: 'Grace', origin: 'City U', destination: 'City V', seatsAvailable: 1, price: 12 },
+    { id: 8, driver: 'Henry', origin: 'City K', destination: 'City L', seatsAvailable: 6, price: 28 },
+    { id: 9, driver: 'Ivy', origin: 'City R', destination: 'City S', seatsAvailable: 2, price: 24 },
+    { id: 10, driver: 'Jack', origin: 'City E', destination: 'City F', seatsAvailable: 4, price: 19 }
     // Add more ride objects as needed
 ];
+
 
 const rideList = document.getElementById('ride-list');
 const bookButton = document.getElementById('book-button');
