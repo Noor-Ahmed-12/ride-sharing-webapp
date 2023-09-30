@@ -15,7 +15,6 @@ const rides = [
     // Add more ride objects with driver names and details as needed
 ];
 
-
 const rideList = document.getElementById('ride-list');
 const bookButton = document.getElementById('book-button');
 const bookingForm = document.getElementById('booking-form');
@@ -83,7 +82,7 @@ bookingForm.addEventListener('submit', (e) => {
 // Event listener for filtering rides based on price range
 filterForm.addEventListener('submit', (e) => {
     e.preventDefault();
-    
+
     const filteredRides = rides.filter((ride) => ride.price <= priceRangeInput.value);
 
     if (filteredRides.length === 0) {
@@ -96,4 +95,13 @@ filterForm.addEventListener('submit', (e) => {
 // Event listener to update the displayed price range value
 priceRangeInput.addEventListener('input', () => {
     priceOutput.textContent = `$${priceRangeInput.value}`;
+
+    // Ensure the ride list is updated when the user adjusts the price range
+    const filteredRides = rides.filter((ride) => ride.price <= priceRangeInput.value);
+
+    if (filteredRides.length === 0) {
+        rideList.innerHTML = '<p>No rides match your selected price range.</p>';
+    } else {
+        displayRides(filteredRides);
+    }
 });
